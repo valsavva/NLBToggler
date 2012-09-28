@@ -77,7 +77,7 @@ namespace SocialShield.NLBToggler
             var json = DoSoftLayerAPIRequest(string.Format(NlbRecordStatusUri, this.NlbRecordId));
             var response = (new JavaScriptSerializer()).Deserialize<Dictionary<string, object>>(json);
 
-            return ((int)response["enabled"] == 1) && this.Enable;
+            return ((int)response["enabled"] == 1) == this.Enable;
         }
 
         private bool Toggle()
